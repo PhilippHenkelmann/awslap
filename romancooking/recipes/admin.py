@@ -1,4 +1,6 @@
 from django.contrib import admin
-from .models import Recipe
+from .models import RomanDish
 
-admin.site.register(Recipe)
+@admin.register(RomanDish)
+class RomanDishAdmin(admin.ModelAdmin):
+    list_display = ('title', 'author', 'ingredients', 'preparation')

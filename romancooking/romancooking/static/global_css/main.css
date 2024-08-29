@@ -1,0 +1,22 @@
+body {
+    background: url(https://www.bing.com/images/search?view=detailV2&ccid=idhpKi6a&id=EF4713A140A4BCD1DC852087E52A377CFC02DDE6&thid=OIP.idhpKi6aNwJWhSWmNjJ71gHaEK&mediaurl=https://wallpaperaccess.com/full/11541192.jpg&q=%27https://www.example.com/marble-background.jpg&ck=DAEF8C0955B510C7202776BFB29FF043&idpp=rc&idpview=singleimage&form=rc2idp) no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Times New Roman', serif;
+    color: #FFD700; /* Goldene Schriftfarbe */
+}
+
+h1 {
+    font-family: 'Times New Roman', serif;
+    color: #FFD700; /* Goldene Schriftfarbe */
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    font-size: 1.2em;
+    margin: 10px 0;
+}

@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Willkommen bei Kochen im alten Rom</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global_css/main.css' %}">
+</head>
+<body>
+    <h1>Willkommen bei Kochen im alten Rom</h1>
+
+    <p>Entdecken Sie die Vielfalt der römischen Küche und erfahren Sie mehr über historische Rezepte und kulinarische Traditionen.</p>
+    
+    <h2><a href="{% url 'recipe_list' %}">Zu den Rezepten</a></h2>
+    
+    <!-- Wetterinformationen für mehrere Städte -->
+    <div>
+        <h2>Wetter in Römischen Städten</h2>
+        <ul>
+            <li>Rom: <span id="weather-rome">{{ weather_data.Rome }} °C</span></li>
+            <li>Köln: <span id="weather-cologne">{{ weather_data.Cologne }} °C</span></li>
+            <li>Xanten: <span id="weather-xanten">{{ weather_data.Xanten }} °C</span></li>
+            <li>Karthago: <span id="weather-carthage">{{ weather_data.Carthage }} °C</span></li>
+            <li>Athen: <span id="weather-athens">{{ weather_data.Athens }} °C</span></li>
+            <li>Ephesus: <span id="weather-ephesus">{{ weather_data.Ephesus }} °C</span></li>
+            <li>Alexandria: <span id="weather-alexandria">{{ weather_data.Alexandria }} °C</span></li>
+        </ul>
+    </div>
+</body>
+</html>

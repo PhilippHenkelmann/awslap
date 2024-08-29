@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rezept löschen</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global_css/main.css' %}">
+</head>
+<body>
+    <!-- Navigationsleiste -->
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'recipe_list' %}">Rezeptliste</a>
+    </nav>
+
+    <h1>Rezept löschen</h1>
+    <p>Bist du sicher, dass du das Rezept "{{ recipe.title }}" löschen möchtest?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Löschen</button>
+    </form>
+    <a href="{% url 'recipe_list' %}">Zurück zur Liste</a>
+</body>
+</html>
+

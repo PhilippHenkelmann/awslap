@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Römische Rezepte</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global_css/main.css' %}">
+</head>
+<body>
+    <!-- Navigationsleiste -->
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'recipe_list' %}">Rezeptliste</a>
+        <!-- Hier kannst du weitere Links hinzufügen -->
+    </nav>
+
+    <h1>Römische Rezepte</h1>
+
+    <!-- Einführungstext zur römischen Esskultur -->
+    <div>
+        <h2>Über die römische Ess- und Trinkkultur</h2>
+        <p>Die römische Küche war bekannt für ihre Vielfalt und Raffinesse. Die Römer schätzten sowohl einfache Alltagsgerichte als auch aufwändige Festmahle. Ihre Speisen umfassten alles von herzhaften Eintöpfen und gebratenem Fleisch bis hin zu feinen Desserts und Weinen. Das gemeinsame Essen war ein wichtiger Bestandteil des sozialen Lebens und spiegelte die gesellschaftlichen Schichten und kulturellen Einflüsse wider. Zu den bekannten Gerichten zählen Gerichte wie <i>Garum</i> (Fischsoße), <i>Posca</i> (Essiggetränk) und <i>Globi</i> (süße Teigbällchen).</p>
+    </div>
+
+    <!-- Liste der Rezepte -->
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe_detail' recipe.id %}">{{ recipe.title }}</a>
+                {% if recipe.image %}
+                    <br>
+                    <img src="{{ recipe.image.url }}" alt="{{ recipe.title }}" style="max-width: 200px; max-height: 200px;">
+                {% endif %}
+                <br>
+                Durchschnittliche Bewertung: {{ recipe.average_rating }} / 5
+            </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Möglichkeit, neue Rezepte hinzuzufügen -->
+    <div>
+        <h2>Neues Rezept hinzufügen</h2>
+        <form method="post" action="{% url 'add_recipe' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <label for="title">Titel:</label>
+            <input type="text" id="title" name="title" required><br>
+            <label for="ingredients">Zutaten:</label>
+            <textarea id="ingredients" name="ingredients" required></textarea><br>
+            <label for="preparation">Zubereitung:</label>
+            <textarea id="preparation" name="preparation" required></textarea><br>
+            <label for="historical_context">Historischer Kontext:</label>
+            <textarea id="historical_context" name="historical_context"></textarea><br>
+            <label for="instructions">Anweisungen:</label>
+            <textarea id="instructions" name="instructions" required></textarea><br>
+            <label for="image">Bild:</label>
+            <input type="file" id="image" name="image"><br>
+            <button type="submit">Rezept hinzufügen</button>
+        </form>
+    </div>
+
+    <!-- JavaScript zur Abfrage der Wetterdaten über eine API -->
+    <script src="{% static 'js/weather.js' %}"></script>
+</body>
+</html>

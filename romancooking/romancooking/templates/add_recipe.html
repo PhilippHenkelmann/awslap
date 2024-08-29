@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neues Rezept hinzufügen</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'global_css/main.css' %}">
+</head>
+<body>
+    <!-- Navigationsleiste -->
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'recipe_list' %}">Rezeptliste</a>
+    </nav>
+
+    <h1>Neues Rezept hinzufügen</h1>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Rezept hinzufügen</button>
+    </form>
+    <a href="{% url 'recipe_list' %}">Zurück zur Liste</a>
+</body>
+</html>
